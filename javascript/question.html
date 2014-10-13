@@ -1,64 +1,89 @@
 <html>
 <head>
-<title>Practise test</title>
-<style>
-h1{	background-color : blue;
-	color: white;
-  	text-align : center;
- }
-h2{	background-color : white;
-	color: blue;
-}
-body{	background-color : pink;	
-}
-div {
-	background-color : grey; 
-	color : red;
-	left-margin: 2px;
-}
-</style>
 <script>
-function result(){
-var res = document.forms["form1"]["t1"].value;
-var ans;
+var ans=0;
 var total=0;
- if(op=='-')
-	ans= num1-num2;
-else if (op=='+')
-	ans= num1+num2;
-else if (op == '*')
-	ans= num1* num2;
-else 
-	ans= num1/num2;
- 
-if (res==ans){ total ++;
-	 document.getElementById("res").innerHTML = 1;
-  	}
-else {total --;
-	document.getElementById("res").innerHTML = -1;
-	}
+var limit=0;
+var correct=0;
+var wrong=0;
+var num1,num2,op,dis;
+var ques=new Array();
+var arr=new Array();
+function generate(){
+    var operators = ['+','-','*','/'];
+    num1 = Math.floor((Math.random()*30)+1);
+    num2 = Math.floor((Math.random()*10)+1);
+    op = operators[Math.floor(Math.random()*4)];
 
+  dis=  document.getElementById("act1").innerHTML = num1 +" "+ op +" "+ num2;
+if(op=='+')
+  ans= num1 + num2;
+else if (op=='-')
+  ans= num1 - num2;
+else if (op == '*')
+  ans= num1 * num2;
+else 
+  ans= Math.floor(num1 / num2);
 }
+
+function check()
+{	if (limit < 10)
+	{
+	var res=document.form1.t1.value;
+	if(ans==res)
+	{ 
+	 correct++;
+	}
+	else
+	{ 
+ 	wrong++;
+	ques[ques.length+1]=dis;
+	arr[arr.length+1]=ans;
+        }
+	
+	total=correct-wrong;
+	document.getElementById("abc").innerHTML=total;
+        generate();  
+       	limit++;
+	}
+        else{
+           alert("Your total score is "+total);
+	 document.getElementById("res").innerHTML="wrong question"+ ques;
+	 document.getElementById("ans").innerHTML="solution for wrong question"+ arr;	
+           return false;
+        }
+} 
 </script>
+
+<title>Practise test</title>
+
 </head>
-<body>
+<body onload="generate()">
 <h1>Test Series </h1>
 <h2> There are 10 question and for each correct question score will be 1 and for wrong question score is -1 </h2>
 <p>Your Question is :</p>
 <div id="act1"></div><br>
-<script>
-var operators = ['+','-','*','/'];
-
-    var num1 = Math.floor((Math.random()*30)+1);
-    var num2 = Math.floor((Math.random()*10)+1);
-    var op = operators[Math.floor(Math.random()*4)];
-
-    document.getElementById("act1").innerHTML = num1 +" "+ op +" "+ num2;
-</script>
 <form name="form1">
 <input type="text" name="t1"/><br>
-<input type="submit" value="Submit" onClick="result()"/>
-</form>
+<input type="button" value="Submit" onclick="check()"/></form>
 <p id="res"></p>
+<p id="ans"></p>
+Total Score:<div id="abc"></div>
 </body>
 </html>
+<style>
+h1{ background-color : blue;
+  color: white;
+  text-align : center;
+ }
+h2{ background-color : white;
+  color: blue;
+}
+body{ background-color : pink;  
+}
+div {
+  background-color : grey; 
+  color : red;
+  left-margin: 2px;
+}
+</style>
