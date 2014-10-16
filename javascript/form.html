@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>
+Application form
+</title>
+<script> 
+
+
+function validate()
+{
+
+if (document.f1.Employee_Name.value != "" && document.f1.Email.value != "" &&  document.f1.Contact_Number.value != "" &&  document.f1.role.value != "")
+{
+var res=document.f1.Employee_Name.value;
+var res1=document.f1.Email.value;
+var res2=document.f1.Contact_Number.value;
+var res3=document.f1.role.value;
+document.getElementById("dem").innerHTML="Employee Details"
+document.getElementById("demo").innerHTML="Your Name: "+ "\t" +res;
+document.getElementById("demo1").innerHTML="Your Email :"+res1;
+document.getElementById("demo2").innerHTML="Your Contact Info: "+res2;
+document.getElementById("demo3").innerHTML="Your Role: "+res3;
+}
+else 
+alert("enter your details");
+}
+
+
+	function myFunction(x) 
+	{
+    	x.style.border= "1px solid yellow";   
+	}
+
+function check(y){
+y.style.border= "";
+if(y.value=="")
+{
+alert("Please enter your " + y.name);
+return false;
+}
+	if(y.name=="Employee_Name")
+	 var letters = /^[A-Za-z]+$/;  
+   	 if(y.value.match(letters))  
+    	{  
+    		return true;  
+    	}  
+    	else
+	{
+		alert("Enter the alphabet characters only");
+ 	}
+
+	if(y.name=="Contact_Number")
+	{
+	var numbers = /^[0-9]+$/; 
+	if(y.value.match(numbers))  
+	{  	
+	    return true;  
+	}
+        else  
+  	{  
+		alert("Enter the digits only");
+ 	}
+}
+}
+</script>
+</head>
+<body>
+<h1>Application Form</h1>
+<div class="container">
+<div class="left">
+	<form name="f1">
+	<h2><legend>Enter Your details</legend></h2>
+	Employee Name:
+	<input type="text" name="Employee_Name" size=23  onfocus="myFunction(this)" onblur="check(this)" required/><br><br>
+	E- Mail Address :
+	<input type="email" name="Email" size=23 onfocus="myFunction(this)" onblur="check(this)" required/><br><br>
+	Contact Number:
+	<input type="tel" name="Contact_Number" maxlength="10" minlength="10" onfocus="myFunction(this)" onblur="check(this)" required/>
+	<br><br>
+	Employee Role :  <select name="role" required>
+		<option value="" selected="true"></option>
+		<option value="Tester">tester</option>
+		<option value="Developer">developer</option>
+		<option value="Lead">lead</option>
+		<option value="Manager">manager</option>
+		</select><br><br>
+	<center><input type="button" value="Submit" onclick="return validate();"></center>
+	</form>
+</div>
+<div class="right">
+<div id="dem"></div><br><br>
+<div id="demo"></div><br><br>
+<div id="demo1"></div><br><br>
+<div id="demo2"></div><br><br>
+<div id="demo3"></div><br>
+</div>
+
+</div>
+</body>
+</html>
+<style>
+#dem {
+text-align: center;
+font-weight: bold;
+    font-size: 22
+}
+div{ margin-left:5px;}
+h2 {	text-align: center;}
+h1 {
+    color: orange;
+    text-align: center;
+}
+.container {
+width: auto;
+position: relative;
+}
+.left{
+width: 45%; 
+float: left;
+background-color: #b0e0e6;
+}
+.right{
+width: 45%; 
+float: left;
+}
+</style>
