@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>
+Application form
+</title>
+<link rel = 'stylesheet' href = 'form-val.css' type = 'text/css'> </link>
+<script src = "form.js"></script>
+</head>
+<body>
+<h1>Application Form</h1>
+<div class = "container">
+<div class = "left">
+	<form name = "f1">
+	<h2><u>Enter Your details</u></h2>
+	<div id = "error"></div><br>
+	Employee Name:
+	<input type = "text" name = "username" size = 23  onfocus = "myFunction(this)" " onblur = "check(this)"  id = "i1" required/><br>
+	<div class = "cls" id = "s1"> </div><br>
+	E- Mail Address :
+	<input type = "email" name = "email" size = 23 onfocus = "myFunction(this)" onblur = "check(this)" required/><br>
+	<div class = "cls" id = "s2"> </div><br>
+	Contact Number:
+	<input type = "tel" name = "number" maxlength = 10 onfocus = "myFunction(this)" onblur = "check(this)" required /><br>
+	<div class = "cls" id = "s3"> </div>
+	<br>
+	Employee Role :  <select name = "role" required>
+		<option value = " " selected = "true" ></option>
+		<option value = "Tester" >tester</option>
+		<option value = "Developer" >developer</option>
+		<option value = "Lead" > lead</option>
+		<option value = "Manager" >manager</option>
+		</select><br><br>
+
+	<center><input type = "button" value = "Submit" onclick = "return validate();" id = "cf"></center>
+
+	</form>
+</div>
+<div class = "right">
+	<div id = "dem"> </div> <br> <br>
+	<div id = "demo"> </div> <br> <br>
+	<div id = "demo1"> </div> <br> <br>
+	<div id = "demo2"> </div> <br> <br>
+	<div id = "demo3"> </div> <br>
+</div>
+
+</div>
+</body>
+</html>
+

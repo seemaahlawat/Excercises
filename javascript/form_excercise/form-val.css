@@ -1,0 +1,38 @@
+
+div {
+        margin-left:px;
+    }
+#dem {
+	text-align: center;
+	font-weight: bold;
+        font-size: 22;
+    }
+h2 { 
+	text-align: center;
+   }
+h1 {
+        color: orange;
+        text-align: center;
+   }
+.container{
+	width: auto;
+	position: relative;
+	}
+.left{
+	width: 45%; 
+	float: left;
+	background-color: #b0e0e6;
+	}
+.right{
+	width: 45%; 
+	float: left;
+	}
+#error{ 
+	background-color: yellow;
+	text-align: center;
+	color: red;
+	}
+.cls{
+	margin-left: 25%;
+	color: red;
+	}
